@@ -1,5 +1,9 @@
 package com.codegym.exam;
 
+import com.codegym.exam.service.CategoryService;
+import com.codegym.exam.service.UserService;
+import com.codegym.exam.service.impl.CategoryServiceImpl;
+import com.codegym.exam.service.impl.UserServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -44,15 +48,15 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         this.applicationContext = applicationContext;
     }
 
-//    @Bean
-//    public CustomerService customerService(){
-//        return new CustomerServiecImpl();
-//    }
-//
-//    @Bean
-//    public ProvinceService provinceService(){
-//        return new ProvinceServiceImpl();
-//    }
+    @Bean
+    public UserService userService(){
+        return new UserServiceImpl();
+    }
+
+    @Bean
+    public CategoryService categoryService(){
+        return new CategoryServiceImpl();
+    }
 
     //Thymeleaf Configuration
     @Bean
